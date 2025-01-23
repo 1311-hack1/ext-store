@@ -1,0 +1,37 @@
+name: Validate Extensions
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'extensions/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Validate extensions
+      run: npm run validate
+      
+    - name: Check manifest versions
+      run: |
+        for ext in extensions/*/; do
+          if [ -f "$ext/manifest.json" ]; then
+            version=$(jq -r .version "$ext/manifest.json")
+            if [ ! -d "$ext/versions/$version" ]; then
+              echo "Error: Version directory $version missing for $(basename "$ext")"
+              exit 1
+            fi
+          fi
+        done 

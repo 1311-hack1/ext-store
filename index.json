@@ -1,0 +1,39 @@
+{
+  "lastUpdated": "2024-03-20T12:00:00Z",
+  "totalExtensions": 1,
+  "extensions": [
+    {
+      "id": "sample-extension",
+      "name": "Sample Extension",
+      "description": "A sample extension to demonstrate the store structure",
+      "author": "Extension Store Team",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "crxPath": "extensions/sample-extension/versions/1.0.0/crx/sample-extension-1.0.0.crx",
+          "releaseDate": "2024-03-20T12:00:00Z",
+          "minChromeVersion": "88.0.0",
+          "changelog": "Initial release"
+        }
+      ],
+      "latestVersion": "1.0.0",
+      "manifest_version": 3,
+      "permissions": [
+        "storage"
+      ],
+      "rating": {
+        "average": 0,
+        "total": 0,
+        "count": 0
+      },
+      "stats": {
+        "downloads": 0,
+        "activeUsers": 0
+      },
+      "tags": [
+        "sample",
+        "demo"
+      ]
+    }
+  ]
+} 
